@@ -10,29 +10,19 @@ const data = require('../data/zoo_data');
  */
 
 function isManager(id) {
-  const findId = employees.filter((person) =>
-    `${person.firstName.toLowerCase()}Id` === id);
-
+  const findId = employees.filter((person) => person.id === id);
   const findManager = findId.some((item) =>
     item.managers.length === 0 || item.responsibleFor.length > 3);
 
   return findManager;
 }
 
-console.log(isManager('olaId'));
-
 function getRelatedEmployees(managerId) {
-  if (isManager(managerId)) {
-    const empregados = employees.filter(({ managers }) => managers.includes(managerId));
-    const nomes = empregados.map((person) => `${person.firstName} ${person.lastName}`);
-    return nomes;
+  if (isManager(managerId) === false) {
+    throw new Error('O id inserido não é de uma pessoa colaboradora gerente!');
   }
+  return employees.filter(({ managers }) => managers.includes(managerId))
+    .map((person) => `${person.firstName} ${person.lastName}`);
 }
-
-/**
- * estrutura filter esta retornando um array vazio, pois id não é igual
- */
-
-console.log(getRelatedEmployees('olaId'));
 
 module.exports = { isManager, getRelatedEmployees };
