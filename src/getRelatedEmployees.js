@@ -22,7 +22,17 @@ function isManager(id) {
 console.log(isManager('olaId'));
 
 function getRelatedEmployees(managerId) {
-  // seu código aqui
+  if (isManager(managerId)) {
+    const empregados = employees.filter(({ managers }) => managers.includes(managerId));
+    const nomes = empregados.map((person) => `${person.firstName} ${person.lastName}`);
+    return nomes;
+  }
 }
+
+/**
+ * estrutura filter esta retornando um array vazio, pois id não é igual
+ */
+
+console.log(getRelatedEmployees('olaId'));
 
 module.exports = { isManager, getRelatedEmployees };
