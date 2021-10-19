@@ -1,3 +1,4 @@
+const { prices } = require('../data/zoo_data');
 const data = require('../data/zoo_data');
 
 /**
@@ -20,10 +21,29 @@ function countEntrants(entrants) {
   return { child, adult, senior };
 }
 
-console.log(countEntrants([{age: 5}, {age: 5}, {age: 5}, {age: 18}, {age: 18}, {age: 50}])) // teste contador de idade
+// console.log(countEntrants({}));
 
 function calculateEntry(entrants) {
-  // seu código aqui
+  if (!entrants || Object.values(entrants).length === 0) return 0;
+
+  const ageObj = countEntrants(entrants);
+  let ticket = 0;
+
+  const priceChild = ageObj.child * prices.child;
+  const priceAdult = ageObj.adult * prices.adult;
+  const priceSenior = ageObj.senior * prices.senior;
+  ticket = priceChild + priceAdult + priceSenior;
+
+  return ticket;
 }
+
+// console.log(calculateEntry([
+//   { name: 'linda', age: 5 },
+//   { name: 'socorro', age: 18 },
+//   { name: 'anastacia', age: 18 },
+//   { name: 'gertrudes', age: 50 }
+// ]))
+
+// console.log(calculateEntry())
 
 module.exports = { calculateEntry, countEntrants };
