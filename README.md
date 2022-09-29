@@ -1,4 +1,4 @@
-# Boas vindas ao repositório do projeto de ES6 e Higher Order Functions!
+# Boas vindas ao projeto de ES6 e Higher Order Functions!
 
 Este é um projeto que foi desenvolvido durante o curso de Desenvolvimento Web na Trybe.
 
@@ -44,6 +44,7 @@ Este é um projeto que foi desenvolvido durante o curso de Desenvolvimento Web n
   * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
   * **Não se preocupe em preencher mais nada por enquanto!**
   * Volte até a [página de _Pull Requests_ do repositório](https://github.com/mabiiak/zoo-functions/pulls) e confira que o seu _Pull Request_ está criado.
+</details>
 
 ## Requisitos
 
